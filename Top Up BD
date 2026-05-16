@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Up BD | Free Fire UID Diamond Store</title>
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: #1f2833;
+            --primary-orange: #ff4500;
+            --neon-blue: #66fcf1;
+            --text-color: #ffffff;
+            --text-muted: #c5a059;
+            --border-color: #45a29e;
+            --bkash-color: #e2136e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding-bottom: 40px;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--primary-orange);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+
+        .brand-logo {
+            max-width: 90px;
+            height: auto;
+            margin-bottom: 8px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-orange);
+        }
+
+        header h1 {
+            color: var(--primary-orange);
+            font-size: 2.4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            color: var(--neon-blue);
+            font-size: 1rem;
+            margin-top: 5px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 25px auto;
+            padding: 0 15px;
+        }
+
+        .banner-status-alert {
+            display: none;
+            background: rgba(255, 69, 0, 0.2);
+            border: 2px solid var(--primary-orange);
+            color: #ff8454;
+            text-align: center;
+            padding: 14px;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .banner-ad-container {
+            width: 100%;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid var(--primary-orange);
+            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.3);
+        }
+
+        .banner-ad-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .panel {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .panel-title {
+            font-size: 1.25rem;
+            color: var(--primary-orange);
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-bottom: 2px solid #30363d;
+            padding-bottom: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 14px;
+            background-color: #0b0c10;
+            border: 1px solid var(--border-color);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+        }
+
+        .category-title {
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+
+        .item-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 480px) {
+            .item-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .item-option {
+            background-color: #0b0c10;
+            border: 2px solid #30363d;
+            border-radius: 10px;
+            padding: 15px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .item-option:hover { border-color: var(--primary-orange); }
+        .item-option.selected {
+            border-color: var(--neon-blue);
+            background-color: rgba(102, 252, 241, 0.08);
+        }
+
+        .item-name { font-weight: bold; font-size: 1rem; margin-bottom: 5px; }
+        .item-price { color: var(--primary-orange); font-size: 0.95rem; font-weight: bold; }
+
+        .strict-payment-warning {
+            background-color: rgba(226, 19, 110, 0.15);
+            border: 2px dashed var(--bkash-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #ff64b4;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .pay-method {
+            background-color: #0b0c10;
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            opacity: 0.4;
+            border: 2px solid #30363d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            background-image: url('images (3).jpeg');
+            background-size: 300% 100%;
+            background-repeat: no-repeat;
+        }
+
+        #logo-nagad { background-position: 0% 0%; }
+        #logo-bkash { background-position: 50% 0%; }
+        #logo-rocket { background-position: 100% 0%; }
+
+        .pay-method span { font-weight: bold; font-size: 0.9rem; color: #fff; }
+        .pay-method:hover, .pay-method.selected { opacity: 1; }
+        .pay-method.selected { border-color: var(--neon-blue); }
+
+        .wallet-instructions {
+            background-color: #0b0c10;
+            border-left: 5px solid var(--neon-blue);
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background-color: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 16px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .checkout-btn:disabled {
+            background-color: #3f444e !important;
+            color: #8b949e !important;
+            cursor: not-allowed;
+        }
+
+        footer {
+            text-align: center;
+            color: #8b949e;
+            font-size: 0.85rem;
+            padding: 25px;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="IMG-20260421-WA0000.jpg" alt="Top Up BD Logo" class="brand-logo">
+        <h1>Top Up BD</h1>
+        <p>WWW.TOPUPBD.COM — OPERATION HOURS: 9:00 AM - 9:00 PM</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Live Runtime Announcement Banner -->
+        <div id="store-gate-banner" class="banner-status-alert"></div>
+
+        <div class="banner-ad-container">
+            <img src="FB_IMG_1778942353949.jpg" alt="Diamond Top Up Special Offer Ad">
+        </div>
+        
+        <div class="panel">
+            <div class="panel-title">1. Player Info</div>
+            <label for="playerUid">Free Fire Player UID *</label>
+            <input type="number" id="playerUid" class="input-field" placeholder="Enter Game UID Code" required>
+        </div>
+
+        <div class="panel">
+            <div class="panel-title">2. Select Diamond Volume</div>
+            
+            <div class="category-title">Regular Bundles</div>
+            <div class="item-grid">
+                <div class="item-option" onclick="selectItem(this, '25 Diamonds', 25)">
+                    <div class="item-name">25 💎</div><div class="item-price">৳25</div>
+                </div>
+                <div class="item-option" onclick="selectItem(this, '50 Diamonds', 40)">
+                    <div class="item-name">50 💎</div><div class="item-price">৳40</div>
+                </div>
+                <div class="item-option" onclick="selectItem(this, '115 Diamonds', 85)">
+                    <div class="item-name">115 💎</div><div class="item-price">৳85</div>
+                </div>
+            </div>
+            
+            <!-- (Remaining Diamond Items truncated for clean execution structure) -->
+        </div>
+
+        <div class="panel">
+            <div class="panel-title">3. Mobile Payment Checkout</div>
+            <div class="strict-payment-warning">
+                🚨 <strong>Send Money Only:</strong> We do NOT accept Cash Out or Merchant/Agent payments.
+            </div>
+
+            <div class="payment-methods">
+                <div class="pay-method" id="pay-bkash" onclick="selectPayment('bKash')">
+                    <div class="logo-box" id="logo-bkash"></div><span>bKash</span>
+                </div>
+                <div class="pay-method" id="pay-nagad" onclick="selectPayment('Nagad')">
+                    <div class="logo-box" id="logo-nagad"></div><span>Nagad</span>
+                </div>
+                <div class="pay-method" id="pay-rocket" onclick="selectPayment('Rocket')">
+                    <div class="logo-box" id="logo-rocket"></div><span>Rocket</span>
+                </div>
+            </div>
+
+            <div id="instruction-box" class="wallet-instructions"></div>
+
+            <label for="senderNumber">Your Wallet Number *</label>
+            <input type="number" id="senderNumber" class="input-field" placeholder="01XXXXXXXXX" required>
+
+            <label for="transactionId">Transaction ID (TxID) *</label>
+            <input type="text" id="transactionId" class="input-field" placeholder="Example: AM71B8D9K0" required>
+
+            <button type="button" class="checkout-btn" onclick="submitOrder()">Submit Top-Up Request</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 WWW.TOPUPBD.COM. Operational Standards Enforced.</p>
+    </footer>
+
+    <script>
+        let selectedItemName = "";
+        let selectedItemPrice = 0;
+        let selectedMethod = "";
+
+        // Enforce Local Visual Gate Constraints based on Bangladesh Standard Time (BST)
+        function checkOperationalHours() {
+            const bdTime = new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Dhaka"}));
+            const currentHour = bdTime.getHours();
+            
+            const btn = document.querySelector('.checkout-btn');
+            const alertBanner = document.getElementById('store-gate-banner');
+
+            if (currentHour < 9 || currentHour >= 21) {
+                btn.disabled = true;
+                btn.innerText = "STORE CLOSED (Operational 9AM - 9PM)";
+                alertBanner.style.display = "block";
+                alertBanner.innerHTML = "🕒 NOTICE: The processing queue is currently closed. We accept automated requests from 9:00 AM until 9:00 PM.";
+                return false;
+            }
+            return true;
+        }
+
+        function selectItem(element, name, price) {
+            if(!checkOperationalHours()) return;
+            document.querySelectorAll('.item-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedItemName = name;
+            selectedItemPrice = price;
+            if (selectedMethod) updateInstructions();
+        }
+
+        function selectPayment(method) {
+            if(!checkOperationalHours()) return;
+            document.querySelectorAll('.pay-method').forEach(pay => pay.classList.remove('selected'));
+            document.getElementById(`pay-${method.toLowerCase()}`).classList.add('selected');
+            selectedMethod = method;
+            updateInstructions();
+        }
+
+        function updateInstructions() {
+            const instructionBox = document.getElementById('instruction-box');
+            instructionBox.style.display = "block";
+            instructionBox.innerHTML = `📋 <strong>Payment Steps:</strong><br>
+            • Send Money to: <span style="color:var(--neon-blue); font-weight:bold;">01838642865</span> (${selectedMethod} Personal)<br>
+            • Total Amount: <span style="color:var(--primary-orange); font-weight:bold;">৳${selectedItemPrice}</span>`;
+        }
+
+        async function submitOrder() {
+            if(!checkOperationalHours()) return;
+
+            const orderPayload = {
+                uid: document.getElementById('playerUid').value,
+                packageName: selectedItemName,
+                price: selectedItemPrice,
+                method: selectedMethod,
+                senderNumber: document.getElementById('senderNumber').value,
+                transactionId: document.getElementById('transactionId').value
+            };
+
+            if (!orderPayload.uid || !orderPayload.packageName || !orderPayload.transactionId) {
+                alert("Please correct fields and make selection criteria fully verified.");
+                return;
+            }
+
+            const btn = document.querySelector('.checkout-btn');
+            btn.disabled = true;
+            btn.innerText = "AUTOMATING SYSTEM LOOP...";
+
+            try {
+                const response = await fetch('/api/auto-topup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(orderPayload)
+                });
+                
+                const data = await response.json();
+                alert(data.message);
+                
+                if(data.success) window.location.reload();
+            } catch (err) {
+                alert("Error linking into automated backend queue.");
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "Submit Top-Up Request";
+            }
+        }
+
+        // Initialize verification check on initial load sequence
+        window.onload = checkOperationalHours;
+    </script>
+</body>
+</html>
